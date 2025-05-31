@@ -19,7 +19,8 @@ Baigus duomenų įvedimą, suskaičiuoja galutinį balą pagal formulę:  Galuti
 
 <br/>
 <br/> 
-TESTAVIMAS. Palygintas v1.5 ir v3.0 našumas, rezultatai gauti iš 5 testų vidurkio: <br/> <br/>
+TESTAVIMAS. Palygintas v1.5 ir v3.0 našumas, rezultatai gauti iš 5 testų vidurkio. 
+<br/> Išvada - naujasis Vector konteineris yra spartesnis už std::vector.<br/> <br/> 
 
 ![Screenshot 2025-05-31 235050](https://github.com/user-attachments/assets/1ff34ce2-0b70-4e5c-92fc-d70d088fb82d)
 
