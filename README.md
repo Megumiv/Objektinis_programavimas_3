@@ -3,7 +3,7 @@
 **NAUJA:**
 - Konteinerio klasės kūrimas Vector
 - v1.5 ir v3.0 testavimo palyginimas (apačioje README)
-Kitos seniau sukurtos klasės: Student (išvestinė) ir Zmogus (abstrakti)
+<br/>Kitos seniau sukurtos klasės: Student (išvestinė) ir Zmogus (abstrakti)
 
 Programa nuskaito vartotojų įvedamus duomenis, juos nuskaito iš failo arba sugeneruoja: studento vardą ir pavardę, namų darbų rezultatus ir egzamino rezultatus. 
 <br/>Realizuota su klase, konstruktoriais ir destruktoriumi, ivesties ir isvesties operatoriais, "Rule of Five".
