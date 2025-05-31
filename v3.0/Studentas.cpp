@@ -1,17 +1,18 @@
 #include "Studentas.h"
 #include "Header.h"
+#include "Vector.h"
 
 // pilnas konstruktorius
-//Student::Student(const string& v, const string& p, const vector<int>& paz, int egz)
+//Student::Student(const string& v, const string& p, const Vec<int>& paz, int egz)
 //    : vardas(v), pavarde(p), pazymiai(paz), egzaminas(egz), galutinisVid(0.0), galutinisMed(0.0) {}
-Student::Student(const string& v, const string& p, const vector<int>& paz, int egz)
+Student::Student(const string& v, const string& p, const Vec<int>& paz, int egz)
     : Zmogus(v, p), pazymiai(paz), egzaminas(egz), galutinisVid(0.0), galutinisMed(0.0) {} 
 
 
 // Duomenu ivedimai ranka
 void Student::ivestiRanka() {
     string v, p;
-    vector<int> pazymiai;
+    Vec<int> pazymiai;
     int nd, egz;
     pazymiai.clear();
 
@@ -53,7 +54,7 @@ void Student::ivestiRanka() {
 
 
 // Nuskaitymas is failo
-bool Student::nuskaitytiIsFailo(const string& filename, vector<Student>& grupe, bool naudotiVidurki) {
+bool Student::nuskaitytiIsFailo(const string& filename, Vec<Student>& grupe, bool naudotiVidurki) {
     ifstream file(filename);
     if (!file) {
         cout << "Klaida: Nepavyko atidaryti failo " << filename << ". Patikrinkite, ar failas egzistuoja.\n";
@@ -78,7 +79,7 @@ bool Student::nuskaitytiIsFailo(const string& filename, vector<Student>& grupe, 
             continue;
         }
 
-        std::vector<int> paz_temp;
+        Vec<int> paz_temp;
         int pazymys = 0;
 
         while (ss >> pazymys) {
@@ -111,7 +112,7 @@ double Student::skaiciuokGalutinis(bool naudotiVidurki) {
     if (pazymiai.empty()) {
         galutinisVid = 0.0;
         galutinisMed = 0.0;
-        return 0.0;
+        return 0.0; //
     }
 
     if (naudotiVidurki) {
@@ -134,7 +135,7 @@ double Student::skaiciuokGalutinis(bool naudotiVidurki) {
 }
 
 // Isvedimas
-void Student::Isvedimas(const vector<Student>& grupe) {
+void Student::Isvedimas(const Vec<Student>& grupe) {
     int isv;
 
     if (grupe.empty()) {
@@ -242,7 +243,7 @@ Student::Student(Student&& other) noexcept
     egzaminas(other.egzaminas),
     galutinisVid(other.galutinisVid),
     galutinisMed(other.galutinisMed) {
-    // Nereikia "nulinimo", nes string ir vector saugiai perkelti
+    // Nereikia "nulinimo", nes string ir Vec saugiai perkelti
 }
 
 // --- Perkelimo priskyrimo operatorius ---

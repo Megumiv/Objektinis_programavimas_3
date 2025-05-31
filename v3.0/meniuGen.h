@@ -1,6 +1,7 @@
 #pragma once
 #include "Header.h"
 #include "Studentas.h"
+#include "Vector.h"
 
 // Meniu
 void meniu()
@@ -112,7 +113,7 @@ void generateStudentFile(const std::string& filename, size_t recordCount) {
 	cout << "\nFailas sukurtas: " << filename << " (" << recordCount << " studentu)";
 }
 inline void GenFailai() {
-	std::vector<std::pair<std::string, size_t>> failai = {
+	Vec<std::pair<std::string, size_t>> failai = {
 		{"studentai_1k.txt", 1'000},
 		{"studentai_10k.txt", 10'000},
 		{"studentai_100k.txt", 100'000},

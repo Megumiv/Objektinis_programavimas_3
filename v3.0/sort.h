@@ -1,6 +1,7 @@
 #pragma once
 #include "Header.h"
 #include "Studentas.h"
+#include "Vector.h"
 
 // Rikiavimo pasirinkimas
 void SortMeniu(char& sortChoice) {
@@ -31,7 +32,7 @@ int extractNumber(const string& pavarde) {
 }
 
 // Rikiavimas
-void Sort(char sortChoice, vector<Student>& grupe) {
+void Sort(char sortChoice, Vec<Student>& grupe) {
 	if (sortChoice == 'a') { //pavarde
 		sort(grupe.begin(), grupe.end(), [](const Student& a, const Student& b) {
 			int numA = extractNumber(a.getPavarde());
@@ -62,10 +63,10 @@ void Sort(char sortChoice, vector<Student>& grupe) {
 
 
 // Isskirstymas i kietiakius ir vargsiukus pagal bala
-void Skirstymas(const vector<Student>& grupe) {
+void Skirstymas(const Vec<Student>& grupe) {
 
-    vector<Student> kietiakiai;
-    vector<Student> vargsiukai;
+    Vec<Student> kietiakiai;
+    Vec<Student> vargsiukai;
 
     for (const auto& stud : grupe) {
         if (stud.getGalutinisVid() >= 5.0 || stud.getGalutinisMed() >= 5)

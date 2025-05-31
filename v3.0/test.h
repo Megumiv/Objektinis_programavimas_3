@@ -1,22 +1,23 @@
 #pragma once
 #include "Header.h"
 #include "Studentas.h"
+#include "Vector.h"
 
 // testavimui
 std::chrono::duration<double> diff; // skirtumas sekundemis
-vector<double> testai;
-double tvid(const vector<double>& times) {
+Vec<double> testai;
+double tvid(const Vec<double>& times) {
 	if (times.empty()) return 0.0;
 	return accumulate(times.begin(), times.end(), 0.0) / times.size();
 }
 
-/* testavimo rezultatai VECTOR:
-	Vidutinis nuskaitymo vykdymo laikas 10 000 studentu per 5 testus: 3.14733 s
-	Vidutinis nuskaitymo vykdymo laikas 100 000 studentu per 5 testus: 40.7781 s
-	Vidutinis nuskaitymo vykdymo laikas 1 000 000 studentu per 5 testus: 206.372 s
+/* testavimo rezultatai su nauju Vector:
+	Vidutinis nuskaitymo vykdymo laikas 10 000 studentu per 5 testus: 3.01346 s
+	Vidutinis nuskaitymo vykdymo laikas 100 000 studentu per 5 testus: 36.3308 s
+	Vidutinis nuskaitymo vykdymo laikas 1 000 000 studentu per 5 testus: 184.906 s
 */
 
-/* Nauju generuojamu duomenu failu testavimo rezultatai:
+/* Naujai generuojamu duomenu failu testavimo rezultatai:
 	1 000 studentu:  0.0172659 s
 	10 000 studentu:  0.145388 s
 	100 000 studentu:  1.495 s
@@ -73,7 +74,7 @@ void testRuleOfFive() {
         cerr << "Perkelimo konstruktorius: pavarde nesutampa\n";
     if (s4.getEgzaminas() != 9)
         cerr << "Perkelimo konstruktorius: egzaminas nesutampa\n";
-    if (s4.getPazymiai() != vector<int>({ 10, 9, 8 }))
+    if (s4.getPazymiai() != Vec<int>({ 10, 9, 8 }))
         cerr << "Perkelimo konstruktorius: pazymiai nesutampa\n";
     if (s4.getGalutinisVid() <= 0.0)
         cerr << "Perkelimo konstruktorius: galutinisVid neapskaiciuotas\n";
@@ -87,7 +88,7 @@ void testRuleOfFive() {
         cerr << "Perkelimo priskyrimo operatorius: pavarde neteisinga po move\n";
     if (s5.getEgzaminas() != 9)
         cerr << "Perkelimo priskyrimo operatorius: egzaminas nesutampa\n";
-    if (s5.getPazymiai() != vector<int>({ 10, 9, 8 }))
+    if (s5.getPazymiai() != Vec<int>({ 10, 9, 8 }))
         cerr << "Perkelimo priskyrimo operatorius: pazymiai nesutampa\n";
     if (s5.getGalutinisVid() <= 0.0)
         cerr << "Perkelimo priskyrimo operatorius: galutinisVid neapskaiciuotas\n";
@@ -113,7 +114,7 @@ void testOperatoriai() {
     assert(s.getVardas() == "Vardas");
     assert(s.getPavarde() == "Pavarde");
     assert(s.getEgzaminas() == 9); 
-    vector<int> tiketini = { 8, 9, 10 };
+    Vec<int> tiketini = { 8, 9, 10 };
     assert(s.getPazymiai() == tiketini); 
 
     // Isvedame i tekstini srauta

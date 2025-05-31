@@ -3,6 +3,7 @@
 #include "meniuGen.h"
 #include "test.h"
 #include "sort.h"
+#include "Vector.h"
 
 
 int main() {
@@ -100,10 +101,11 @@ int main() {
             // Paleisti testavima
             auto start = std::chrono::high_resolution_clock::now();
 
-			vector<Student> grupe_temp; // kad kiekvienas testas prasidetu nuo tuscios grupes
+			Vec<Student> grupe_temp; // kad kiekvienas testas prasidetu nuo tuscios grupes
             // Nuskaitymas
 			for (int i = 0; i < testnr; i++) {
-				grupe_temp.clear(); // isvalom tarp testu
+				//grupe_temp.clear(); // isvalom tarp testu
+                grupe_temp = Vec<Student>();  // Sukuriam visiskai nauja tuscia vektoriu
 				if (!Student::nuskaitytiIsFailo(filename, grupe_temp, naudotiVidurki)) {
 					cout << "\nNuskaitymas nepavyko.\n";
 				}

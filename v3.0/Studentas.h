@@ -1,11 +1,15 @@
-#pragma once
-#include <vector>
+﻿#pragma once
+//#include <vector>
 #include <string>
 #include <iostream>
 #include <utility> // std::move
+#include <algorithm>
+
+#include "Vector.h"
+template<typename T>
+using Vec = Vector<T>;
 
 using std::string;
-using std::vector;
 
 class Zmogus {
 protected:
@@ -42,7 +46,7 @@ extern bool isTestavimoRezimas;
 
 class Student : public Zmogus {
 private:
-    vector<int> pazymiai;
+    Vec<int> pazymiai;
     int egzaminas;
     double galutinisVid;
     double galutinisMed;
@@ -54,7 +58,7 @@ public:
 
     // Konstruktoriai
     Student() : Zmogus(), egzaminas(0), galutinisVid(0.0), galutinisMed(0.0) {} // default
-    explicit Student(const string& v, const string& p, const vector<int>& paz, int egz); // pilnas
+    explicit Student(const string& v, const string& p, const Vec<int>& paz, int egz); // pilnas
 
     // Rule of five
     ~Student() override;// = default; // destruktorius 
@@ -71,18 +75,95 @@ public:
     void ivestiRanka() override;
 
     // Nuskaitymas is failo
-    static bool nuskaitytiIsFailo(const string& filename, vector<Student>& grupe, bool naudotiVidurki);
+    static bool nuskaitytiIsFailo(const string& filename, Vec<Student>& grupe, bool naudotiVidurki);
 
     // Isvedimas
-    static void Isvedimas(const vector<Student>& grupe);
+    static void Isvedimas(const Vec<Student>& grupe);
 
     // Get'ai
     double getGalutinisVid() const { return galutinisVid; }
     double getGalutinisMed() const { return galutinisMed; }
     int getEgzaminas() const { return egzaminas; }
-    const vector<int>& getPazymiai() const { return pazymiai; }
+    const Vec<int>& getPazymiai() const { return pazymiai; }
 
     // Nustatymai
     void setEgzaminas(int e) { egzaminas = e; }
     void addNd(int nd) { pazymiai.push_back(nd); }
 };
+
+
+
+/*template <typename T>
+class Vec {
+public:
+    // Member types (pagal std::Vec)
+    using value_type = T;
+    using size_type = size_t;
+    using difference_type = ptrdiff_t;
+    using reference = T&;
+    using const_reference = const T&;
+    using pointer = T*;
+    using const_pointer = const T*;
+    using iterator = T*;
+    using const_iterator = const T*;
+
+private:
+    pointer data_;       // rodyklė į masyvą
+    size_type size_;     // elementų skaičius
+    size_type capacity_; // talpa (rezervuota atmintis)
+
+public:
+    // Konstruktoriai / destruktorius
+    Vec();
+    explicit Vec(size_type n, const T& val = T());
+    Vec(const Vec& other);
+    Vec(Vec&& other) noexcept;
+    ~Vec();
+
+    // Operatoriai
+    Vec& operator=(const Vec& other);
+    Vec& operator=(Vec&& other) noexcept;
+
+    // Elementų prieiga
+    reference operator[](size_type pos);
+    const_reference operator[](size_type pos) const;
+    reference at(size_type pos);
+    const_reference at(size_type pos) const;
+    reference front();
+    const_reference front() const;
+    reference back();
+    const_reference back() const;
+
+    // Iteratorių funkcijos
+    iterator begin() noexcept;
+    const_iterator begin() const noexcept;
+    iterator end() noexcept;
+    const_iterator end() const noexcept;
+
+    // Talpos funkcijos
+    bool empty() const noexcept;
+    size_type size() const noexcept;
+    size_type capacity() const noexcept;
+    void reserve(size_type new_cap);
+    void shrink_to_fit();
+
+    // Modifikavimo funkcijos
+    void clear() noexcept;
+    void push_back(const T& value);
+    void push_back(T&& value);
+    template <class... Args>
+    void emplace_back(Args&&... args);
+    void pop_back();
+
+    iterator insert(const_iterator pos, const T& value);
+    iterator erase(const_iterator pos);
+    iterator erase(const_iterator first, const_iterator last);
+
+    void resize(size_type count, T value = T());
+
+    // Swap
+    void swap(Vec& other) noexcept;
+
+    // ... kitos funkcijos (assign, emplace, insert su iteratoriais ir kt.)
+
+};*/
