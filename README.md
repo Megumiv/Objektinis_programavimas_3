@@ -19,8 +19,11 @@ Baigus duomenų įvedimą, suskaičiuoja galutinį balą pagal formulę:  Galuti
 
 <br/>
 <br/> **TESTAVIMAS. Palygintas v1.5 ir v3.0 našumas, rezultatai gauti iš 5 testų vidurkio:** <br/>
+
 ![Screenshot 2025-05-31 235050](https://github.com/user-attachments/assets/1ff34ce2-0b70-4e5c-92fc-d70d088fb82d)
+
 <br/> 
+
 ![Screenshot 2025-05-31 235232](https://github.com/user-attachments/assets/e386943e-287e-47fa-a0a1-b9850353296c)
 
 
